@@ -9,10 +9,17 @@ var TennisGame2 = function(player1Name, player2Name) {
     this.player2Name = player2Name;
 };
 
+TennisGame2.prototype.arePointsEquals = function(){
+    if(this.P1point === this.P2point)
+        return true;
+    return false;
+};
+
+
 TennisGame2.prototype.getScore = function() {
     var score = "";
 
-    if (this.P1point === this.P2point && this.P1point < 3) {
+    if (this.arePointsEquals() && this.P1point < 3) {
         if (this.P1point === 0)
             score = "Love";
         if (this.P1point === 1)
@@ -21,7 +28,7 @@ TennisGame2.prototype.getScore = function() {
             score = "Thirty";
         score += "-All";
     }
-    if (this.P1point === this.P2point && this.P1point > 2)
+    if (this.arePointsEquals() && this.P1point > 2)
         score = "Deuce";
 
     if (this.P1point > 0 && this.P2point === 0) {
