@@ -1,0 +1,21 @@
+{
+  "name": "TennisGame",
+  "version": "1.0.0",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "coverage":"nyc mocha --require babel-register",
+    "test": "mocha --require babel-register",
+    "start": "node -r babel-register TennisGame2.js"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "nyc": "^13.2.0"
+  }
+}
