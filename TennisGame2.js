@@ -59,15 +59,17 @@ TennisGame2.prototype.getScore = function() {
     }
 
     if (this.P1point > this.P2point && this.P1point < 4) {
-        if (this.P1point === 2)
-            this.P1res = "Thirty";
-        if (this.P1point === 3)
-            this.P1res = "Forty";
-        if (this.P2point === 1)
-            this.P2res = "Fifteen";
-        if (this.P2point === 2)
-            this.P2res = "Thirty";
-        score = this.P1res + "-" + this.P2res;
+        // if (this.P1point === 2)
+        //     this.P1res = "Thirty";
+        // if (this.P1point === 3)
+        //     this.P1res = "Forty";
+        // if (this.P2point === 1)
+        //     this.P2res = "Fifteen";
+        // if (this.P2point === 2)
+        //     this.P2res = "Thirty";
+        // this.P1res = this.getTheScoreOfPlayer1WheIsUnderFour();
+
+        score = this.getTheScoreOfPlayer1WheIsUnderFour() + "-" + this.getTheScoreOfPlayer2WheIsUnderFour();
     }
     if (this.P2point > this.P1point && this.P2point < 4) {
         if (this.P2point === 2)
