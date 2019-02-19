@@ -15,41 +15,45 @@ TennisGame2.prototype.arePointsEquals = function(){
     return false;
 };
 
+TennisGame2.prototype.getTheScoreOfPlayer1WheIsUnderFour = function() {
+    if (this.P1point === 0)
+        return "Love";
+    if (this.P1point === 1)
+        return  "Fifteen";
+    if (this.P1point === 2)
+        return "Thirty";
+    if (this.P1point === 3)
+        return "Forty";
+};
+
+TennisGame2.prototype.getTheScoreOfPlayer2WheIsUnderFour = function() {
+    if (this.P2point === 0)
+        return "Love";
+    if (this.P2point === 1)
+        return  "Fifteen";
+    if (this.P2point === 2)
+        return "Thirty";
+    if (this.P2point === 3)
+        return "Forty";
+};
 
 TennisGame2.prototype.getScore = function() {
     var score = "";
 
     if (this.arePointsEquals() && this.P1point < 3) {
-        if (this.P1point === 0)
-            score = "Love";
-        if (this.P1point === 1)
-            score = "Fifteen";
-        if (this.P1point === 2)
-            score = "Thirty";
+        score = this.getTheScoreOfPlayer1WheIsUnderFour();
         score += "-All";
     }
     if (this.arePointsEquals() && this.P1point > 2)
         score = "Deuce";
 
     if (this.P1point > 0 && this.P2point === 0) {
-        if (this.P1point === 1)
-            this.P1res = "Fifteen";
-        if (this.P1point === 2)
-            this.P1res = "Thirty";
-        if (this.P1point === 3)
-            this.P1res = "Forty";
-
+        this.P1res = this.getTheScoreOfPlayer1WheIsUnderFour();
         this.P2res = "Love";
         score = this.P1res + "-" + this.P2res;
     }
     if (this.P2point > 0 && this.P1point === 0) {
-        if (this.P2point === 1)
-            this.P2res = "Fifteen";
-        if (this.P2point === 2)
-            this.P2res = "Thirty";
-        if (this.P2point === 3)
-            this.P2res = "Forty";
-
+        this.P2res = this.getTheScoreOfPlayer2WheIsUnderFour()
         this.P1res = "Love";
         score = this.P1res + "-" + this.P2res;
     }
